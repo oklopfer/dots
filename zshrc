@@ -9,7 +9,11 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+if [[ -f /usr/share/oh-my-zsh/oh-my-zsh.sh ]]; then
+    export ZSH="/usr/share/oh-my-zsh/"
+else
+    export ZSH="$HOME/.oh-my-zsh"
+fi
 export BAT_THEME="Dracula"
 ZSH_COLORIZE_TOOL="chroma"
 ZSH_COLORIZE_STYLE=dracula
@@ -80,7 +84,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-bat zsh-eza colorize)
+plugins=(git zsh-syntax-highlighting colorize)
+[[ -v eza ]] && plugins+=(zsh-eza)
+[[ -v bat ]] && plugins+=(zsh-bat)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,15 +116,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
-alias ls='eza $eza_params'
-alias l='eza --git-ignore $eza_params'
-alias ll='eza --all --header --long $eza_params'
-alias llm='eza --all --header --long --sort=modified $eza_params'
-alias la='eza -lbhHigUmuSa'
-alias lx='eza -lbhHigUmuSa@'
-alias lt='eza --tree $eza_params'
-alias tree='eza --tree $eza_params'
+if -v [[ -v eza ]]; then
+    eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
+    alias ls='eza $eza_params'
+    alias l='eza --git-ignore $eza_params'
+    alias ll='eza --all --header --long $eza_params'
+    alias llm='eza --all --header --long --sort=modified $eza_params'
+    alias la='eza -lbhHigUmuSa'
+    alias lx='eza -lbhHigUmuSa@'
+    alias lt='eza --tree $eza_params'
+    alias tree='eza --tree $eza_params'
+fi
 alias cat='/bin/cat'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
