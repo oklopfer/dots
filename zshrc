@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if -v [[ -v eza ]]; then
+if [[ -v eza ]]; then
     eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
     alias ls='eza $eza_params'
     alias l='eza --git-ignore $eza_params'
