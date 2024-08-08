@@ -85,8 +85,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting colorize)
-[[ -v eza ]] && plugins+=(zsh-eza)
-[[ -v bat ]] && plugins+=(zsh-bat)
+(( $+commands[eza] )) && plugins+=(zsh-eza)
+(( $+commands[bat] )) && plugins+=(zsh-bat)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ -v eza ]]; then
+if (( $+commands[eza] )); then
     eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group')
     alias ls='eza $eza_params'
     alias l='eza --git-ignore $eza_params'
