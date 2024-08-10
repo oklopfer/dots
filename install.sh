@@ -37,7 +37,8 @@ else
     cp -r ./oh-my-zsh/* ~/.oh-my-zsh
 fi
 
-cp ./config/neofetch/config.conf ~/.config/neofetch
+sudo cp ./config/neofetch/config.conf ~/.config/neofetch
+sudo chown -cR "${USER}":"${USER}" ~/.config/neofetch
 
 for i in p10k.zsh zshrc; do
     cp -r "${i}" ~/."${i}"
