@@ -28,13 +28,16 @@ fi
 
 git submodule update --init --recursive
 
+sudo mkdir -p ~/.config/neofetch ~/.oh-my-zsh
+sudo chown -cR "${USER}":"${USER}" ~/.config ~/.oh-my-zsh
+
 if [[ -f /usr/share/oh-my-zsh/oh-my-zsh.sh ]]; then
-    sudo cp -r oh-my-zsh/* /usr/share/oh-my-zsh
+    sudo cp -r ./oh-my-zsh/* /usr/share/oh-my-zsh
 else
-    cp -r oh-my-zsh/* ~/.oh-my-zsh
+    cp -r ./oh-my-zsh/* ~/.oh-my-zsh
 fi
 
-sudo cp -r config/neofetch ~/.config
+cp ./config/neofetch/config.conf ~/.config/neofetch
 
 for i in p10k.zsh zshrc; do
     cp -r "${i}" ~/."${i}"
