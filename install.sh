@@ -44,5 +44,11 @@ for i in p10k.zsh zshrc; do
     cp -r "${i}" ~/."${i}"
 done
 
+if [[ $(uname) == "Darwin" ]]; then
+    cp meslolgsnf/*.ttf ~/Library/Fonts
+else
+    sudo cp -r meslolgsnf /usr/share/fonts/truetype
+fi
+
 neofetch
 "$(which zsh)"
