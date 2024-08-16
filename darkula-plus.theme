@@ -1,0 +1,15 @@
+[Scheme]
+Name=Darkula+
+ColorForeground=#f8f8f2
+FontName=MesloLGS NF Regular 12
+ColorBackground=#212121
+ColorCursor=#9f9f9f
+ColorCursorForeground=#9f9f9f
+ColorCursorUseDefault=FALSE
+ColorSelectionBackground=#39425a
+ColorSelection=#f8f8f2
+ColorSelectionUseDefault=FALSE
+ColorBold=#ffffff
+ColorBoldUseDefault=FALSE
+ColorPalette=#000000;#ef3765;#2df77a;#f79d59;#577df9;#aa7ae5;#46bec4;#a7a7a7;#545454;#ed3b3e;#95fc67;#f7ce5b;#899cf9;#e36cf0;#6bce9a;#f8f8f2
+TabActivityColor=#dc322f

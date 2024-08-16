@@ -44,9 +44,14 @@ for i in p10k.zsh zshrc; do
     cp -r "${i}" ~/."${i}"
 done
 
+if [[ -d /usr/share/xfce4/terminal/colorschemes/ ]]; then
+    sudo cp darkula-plus.theme /usr/share/xfce4/terminal/colorschemes/
+fi
+
 if [[ $(uname) == "Darwin" ]]; then
     cp meslolgsnf/*.ttf ~/Library/Fonts
 else
+    sudo mkdir -p /usr/share/fonts/truetype
     sudo cp -r meslolgsnf /usr/share/fonts/truetype
 fi
 
